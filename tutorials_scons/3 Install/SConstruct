@@ -1,0 +1,5 @@
+env = Environment() #Initialize the environment
+
+main_executable = env.Program(target="main", source=["src/main.cc"])
+
+env.Install(dir="bin/", source=main_executable)

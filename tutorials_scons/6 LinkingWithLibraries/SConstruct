@@ -1,0 +1,5 @@
+env = Environment() #Initialize the environment
+
+lib = env.SharedLibrary(target="util", source=["src/util.cc"])
+
+env.Program(target="main", source=["src/main.cc"], LIBS=['util'], LIBPATH='.')   

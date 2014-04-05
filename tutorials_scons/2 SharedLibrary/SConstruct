@@ -1,0 +1,5 @@
+env = Environment() #Initialize the environment
+
+env.SharedLibrary(target="util", source=["src/util.cc"])
+
+env.SharedLibrary(target="noprefixutil", source=["src/util.cc"], SHLIBPREFIX='')  # 

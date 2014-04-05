@@ -1,0 +1,11 @@
+env = Environment() #Initialize the environment
+
+lib = Split('util boost_system boost_thread')
+
+Export('env lib') # Export function automatically splits the string into a list 
+
+for subdir in ['src']:
+	executable = SConscript('%s/SConscript' % subdir, 'env', variant_dir='build') 
+	# SCons Duplicates Source Files in a Variant Directory Tree
+	print "Executable create (%s) " % executable
+

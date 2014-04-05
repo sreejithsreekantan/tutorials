@@ -1,0 +1,6 @@
+env = Environment() #Initialize the environment
+
+env.StaticLibrary(target="util", source=["src/util.cc"])
+
+env.StaticLibrary(target="noprefixutil", source=["src/util.cc"], SHLIBPREFIX='') 
+ # warning will be given for specifying source file(util.cc) twice. 

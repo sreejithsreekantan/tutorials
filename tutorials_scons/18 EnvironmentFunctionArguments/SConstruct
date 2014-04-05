@@ -1,0 +1,17 @@
+platform = ARGUMENTS.get('OS', Platform())
+
+include = "#export/$PLATFORM/include"
+lib = "#export/$PLATFORM/lib"
+bin = "#export/$PLATFORM/bin"
+
+env = Environment(PLATFORM = platform,
+                  BINDIR = bin,
+                  INCDIR = include,
+                  LIBDIR = lib,
+                  CPPPATH = [include],
+                  LIBPATH = [lib],
+                  LIBS = ['boost_system', 'boost_thread'])
+
+Export('env')
+
+env.SConscript('src/SConscript', variant_dir='build/$PLATFORM')

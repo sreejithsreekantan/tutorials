@@ -1,0 +1,5 @@
+Import('env') 
+Import('lib') # OR Import('*') to import all exported variables
+
+
+env.Program(target="main", source=["main.cc"], LIBS=lib, LIBPATH='.')   

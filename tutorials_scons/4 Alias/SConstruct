@@ -1,0 +1,17 @@
+env = Environment() #Initialize the environment
+
+main_executable = env.Program(target="main", source=["src/main.cc"])
+main_executable1 = env.Program(target="main1", source=["src/main.cc"])
+main_executable2 = env.Program(target="main2", source=["src/main.cc"])
+
+
+
+env.Install(dir="bin/", source=main_executable)
+env.Install(dir="bin/", source=main_executable1)
+env.Install(dir="bin2/", source=main_executable2)
+
+env.Alias('install', ["bin/"])
+env.Alias('install2', ["/sreejith/workspace/cpp/tutorials_scons/4 Alias/bin2/"])
+
+# >> /sreejith/tools/scons/scons.py install  --builds main and main1
+# >> /sreejith/tools/scons/scons.py install2 --builds main2

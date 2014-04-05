@@ -1,0 +1,18 @@
+
+def build_function(target, source, env):
+	# Code to build "target" from "source"
+	print "--Build Success"
+	return None
+
+
+
+env = Environment()
+
+bld = Builder(	action=build_function,
+				suffix = '.out',
+				src_suffix = '.dummy'
+				)
+
+env.Append(BUILDERS={'DummyBuilder':bld}) #Initialize the environment
+
+env.DummyBuilder(target="main", source=["src/main"])

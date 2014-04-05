@@ -1,0 +1,7 @@
+env = Environment()
+
+bld = Builder(action='cat < $SOURCE > $TARGET')
+
+env.Append(BUILDERS={'DummyBuilder':bld}) #Initialize the environment
+
+env.DummyBuilder(target="main.out", source=["src/main.dummy"])

@@ -1,0 +1,9 @@
+Import('env') # OR Import('*') to import all exported variables
+
+
+
+executable = env.Program(target="main", source=["main.cc"])   
+
+env.SharedLibrary(target="util", source=["util.cc"])
+
+Return('executable')

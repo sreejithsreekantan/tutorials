@@ -1,0 +1,7 @@
+env = Environment() #Initialize the environment
+
+lib = Split('util boost_system boost_thread')
+
+Export('env lib') # Export function automatically splits the string into a list 
+SConscript('src/SConscript', 'env')
+

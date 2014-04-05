@@ -1,0 +1,9 @@
+lib = Split('util boost_system boost_thread')
+
+Program(target="main", source=["main.cc"], LIBS=lib, LIBPATH='.')   # All filenames are relative
+																	# to the path of the SConscript
+																	# file.
+																	# To make it relative to SConstruct
+																	# file, prepend the path with '#'
+																	# ie. main.cc or #src/main.cc
+Program(target="main1", source=["#src/main.cc"], LIBS=lib, LIBPATH='.') 
