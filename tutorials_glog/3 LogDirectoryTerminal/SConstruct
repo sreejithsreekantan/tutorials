@@ -1,0 +1,26 @@
+platform = ARGUMENTS.get('OS', Platform())
+
+include_path = "#/src/"
+
+import glob,os;
+lib_path = []
+for i in glob.glob("lib/*/lib"):
+	lib_path.append("#"+i);
+
+
+bin_path = ""
+libs = ['glog']
+
+env = Environment(PLATFORM = platform,
+                  BINDIR = bin_path,
+                  INCDIR = include_path,
+                  LIBDIR = lib_path,
+                  CPPPATH = [include_path],
+                  LIBPATH = [lib_path],
+                  LIBS = libs,
+                  PROJ_BASE_DIR = "#")
+
+Export('env')
+
+env.SConscript('src/SConscript', variant_dir='build/$PLATFORM')
+

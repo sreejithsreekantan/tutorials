@@ -1,0 +1,37 @@
+platform = ARGUMENTS.get('OS', Platform())
+
+include_path = ""
+
+import glob,os;
+lib_path = []
+
+bin_path = ""
+libs = []
+
+
+AddOption('--release',
+	dest='release',
+	action='store_true',
+	help='build program for release',
+	default=False
+	)
+
+env = Environment(PLATFORM = platform,
+                  BINDIR = bin_path,
+                  INCDIR = include_path,
+                  LIBDIR = lib_path,
+                  CPPPATH = [include_path],
+                  LIBPATH = [lib_path],
+                  LIBS = libs,
+                  PROJ_BASE_DIR = "#")
+
+variant_dir='build/$PLATFORM'
+
+if GetOption('release'):
+	f = env.ParseFlags('-DNDEBUG -O3 -s')
+	env.MergeFlags(f)
+
+Export('env')
+
+env.SConscript('src/SConscript', variant_dir=variant_dir)
+

@@ -1,0 +1,6 @@
+Log file created at: 2014/04/08 16:18:54
+Running on machine: TVMATP245227M.local
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+W0408 16:18:54.833223 2087403904 main.cc:34] This sentence is logged to LOG(WARNING)..
+E0408 16:18:54.833354 2087403904 main.cc:35] This sentence is logged to LOG(ERROR)..
+F0408 16:18:54.833499 2087403904 main.cc:40] This sentence is logged to LOG(DFATAL)..

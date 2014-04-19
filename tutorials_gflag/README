@@ -1,0 +1,58 @@
+http://google-gflags.googlecode.com/svn/trunk/doc/gflags.html
+
+cd /sreejith/workspace/cpp/tutorials_gflag/1\ SimpleFlag/
+make && build/darwin/exe 
+
+cd /sreejith/workspace/cpp/tutorials_gflag/2\ CommandLineFlag/
+make && build/darwin/exe 
+make && build/darwin/exe --nobool_a
+make && build/darwin/exe --nobool_a --int32_a=47 -int64_a=10239 --uint64_a 123021310 --double_a=12312.13129 --string_a="Sreejith is running this program"
+make && build/darwin/exe --nobool_a --int32_a=47 -int64_a=10239 --uint64_a 123021310 --double_a=12312.13129 --string_a="Sreejith is running this program"
+make && build/darwin/exe --nobool_a --int32_a=47 -int64_a=10239 --uint64_a 123021310 --double_a=12312.13129 --string_a="Sreejith is running this program"
+make && build/darwin/exe --nobool_a --int32_a=47 -int64_a=10239 --uint64_a 123021310 --double_a=12312.13129 --string_a="Sreejith is running this program"
+make && build/darwin/exe --nobool_a --int32_a=47 -int64_a=10239 --uint64_a 123021310 --double_a=12312.13129 --string_a="Sreejith is running this program"
+make && build/darwin/exe --nobool_a --int32_a=47 -int64_a=10239 --uint64_a 123021310 --double_a=12312.13129 --string_a="Sreejith is running this program"
+
+cd /sreejith/workspace/cpp/tutorials_gflag/3\ DeclareFlag/
+make && build/darwin/exe  --string_a="Sreejith is running this program"
+make && build/darwin/exe  --string_a="Sreejith is running this program"
+
+cd /sreejith/workspace/cpp/tutorials_gflag/4\ FlagValidator 
+make && build/darwin/exe 
+make && build/darwin/exe 
+make && build/darwin/exe 
+make && build/darwin/exe 
+build/darwin/exe --a=-1000
+build/darwin/exe --a=-101
+build/darwin/exe --a=-100
+build/darwin/exe --a=-0
+build/darwin/exe --help
+
+// Creates error: ERROR: unknown command line flag 'b'
+build/darwin/exe --a=-0 --b
+// To avoid above error:
+build/darwin/exe --a=-0 --b --undefok=b
+
+
+//******* --fromenv= ********
+  build/darwin/exe
+  // output: FLAGS_a => 0
+  export FLAGS_a=1200
+  build/darwin/exe --fromenv=a
+  // output: FLAGS_a => 1200
+
+//******* --tryfromenv= ********
+  unset FLAGS_a
+  build/darwin/exe --fromenv=a
+  // ERROR: FLAGS_a not found in environment
+  build/darwin/exe --tryfromenv=a
+  // FLAGS_a => 0 (no error only if FLAGS_a is already defined in source code)
+
+//******* --flagfile= ********
+  build/darwin/exe --flagfile=../myflags 
+  // myflags content : --a=999 
+  FLAGS_a => 999
+
+
+ cd ../5\ StripFlagHelp/
+// ******* STRIP_FLAG_HELP ********

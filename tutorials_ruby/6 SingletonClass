@@ -1,0 +1,16 @@
+#!/usr/bin/ruby
+
+require 'singleton'
+class MySingletonClass
+	include Singleton
+	public
+	def address
+		puts "my adress: ", self
+	end
+end
+
+c1 = MySingletonClass.instance
+c1.address
+
+c2 = MySingletonClass.instance
+c2.address

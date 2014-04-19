@@ -1,0 +1,6 @@
+Variable Types:
+	$global_variable
+	@@class_variable
+	@instane_variable
+	[OtherClass::]CONSTANT
+	local_variable
