@@ -1,0 +1,30 @@
+https://developers.google.com/protocol-buffers/docs/overview
+
+
+For PROTO datatypes:
+https://developers.google.com/protocol-buffers/docs/proto
+
+To create protobuf jar:
+	cd protobuf-2.5.0/java/
+	mvn package -P lite 		[ "mvn package" is causing memory error for me ]
+	cp target/*.jar tutorials_protobuf/lib/protobuf  [make will copy it to needed locations]
+	
+	OR
+
+	DOWNLOAD jar from 
+		http://mirrors.ibiblio.org/maven2/com/google/protobuf/protobuf-java/2.5.0/
+		http://mvnrepository.com/artifact/com.google.protobuf/protobuf-java/2.5.0
+
+Run java code:
+	cd /sreejith/workspace/cpp/tutorials_protobuf/29 CppToJava/src
+	javac main/Main.java  -cp ".:../lib/protobuf/lib/protobuf-java-2.5.0.jar"
+	java main/Main
+
+
+32 CppJavaParseFile2
+--------------------
+Serializes Employee data into a file by C++ program which is then parsed by java program.
+Sample run:
+$> make runcpp
+....
+$> make runjava

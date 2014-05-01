@@ -1,0 +1,3 @@
+message Data {
+	optional uint64 i = 1;
+}

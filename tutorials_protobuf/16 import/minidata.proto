@@ -1,0 +1,4 @@
+message MiniData {
+	optional int32 i = 1;
+	optional bool b = 2;
+}

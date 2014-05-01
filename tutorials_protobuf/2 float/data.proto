@@ -1,0 +1,3 @@
+message Data {
+	optional float i = 1;
+}

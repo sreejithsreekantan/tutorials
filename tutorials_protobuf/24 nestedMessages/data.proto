@@ -1,0 +1,8 @@
+
+message Data {
+	optional MiniData m = 1 {
+		optional int32 i = 2;
+		optional bool b = 3;
+	}
+}
+

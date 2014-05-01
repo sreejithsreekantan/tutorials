@@ -1,0 +1,10 @@
+Import('env') # OR Import('*') to import all exported variables
+
+
+server = env.Program(target="server", source=( ["main/main.cc"] + env.Glob("proto/*.pb.cc") )  )
+
+client = env.Program(target="client", source=( ["main/client.cc"] + env.Glob("proto/*.pb.cc") )  )
+
+
+
+# Return('executable')

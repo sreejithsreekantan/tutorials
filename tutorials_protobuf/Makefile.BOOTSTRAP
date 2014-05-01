@@ -1,0 +1,15 @@
+ROOT_DIR=$(shell pwd)
+LIB_INSTALL=$(ROOT_DIR)/lib/install
+
+all:
+	@for makefile in $(ROOT_DIR)/lib/*/Makefile; do 	\
+		cd `dirname $$makefile`;						\
+		make -f `basename $$makefile`;   				\
+	done;
+
+	@for makefile in $(ROOT_DIR)/tools/Makefile.*; do 	\
+		cd `dirname $$makefile`;		\
+		make -f `basename $$makefile`;   \
+	done;
+
+clean:

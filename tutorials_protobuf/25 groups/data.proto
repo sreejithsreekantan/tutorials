@@ -1,0 +1,8 @@
+
+message Data {
+	optional group MiniData = 1 {
+		optional int32 i = 1;
+		optional bool b = 2;
+	}
+}
+

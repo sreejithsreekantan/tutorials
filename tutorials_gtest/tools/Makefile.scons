@@ -1,0 +1,28 @@
+ROOT_DIR=$(shell pwd)
+INSTALL_DIR=$(ROOT_DIR)/scons
+STAGING_DIR=$(ROOT_DIR)/staging
+SCONS_DIR=scons-2.3.0
+SCONS_ZIP=$(SCONS_DIR).tar.gz
+SCONS_EXE=$(INSTALL_DIR)/bin/scons
+SCONS_SETUP_PY=$(STAGING_DIR)/$(SCONS_DIR)/setup.py
+
+all: scons
+
+scons: $(SCONS_EXE)
+
+$(SCONS_EXE): $(SCONS_SETUP_PY)	
+	@if [ ! -e $(SCONS_EXE) ]; then															\
+		cd "$(STAGING_DIR)/$(SCONS_DIR)" && python setup.py install --prefix=$(INSTALL_DIR);\
+		echo "****** $(SCONS_ZIP) successfully installed in $(INSTALL_DIR)";				\
+	fi
+
+$(SCONS_SETUP_PY): $(SCONS_ZIP)
+	@if [ ! -e $(SCONS_SETUP_PY) ]; then		\
+		mkdir -p $(STAGING_DIR) $(INSTALL_DIR);	\
+		tar -zxf $(SCONS_ZIP) -C $(STAGING_DIR);\
+	fi
+
+.PHONY: 
+
+clean:
+	rm -rf $(INSTALL_DIR) $(STAGING_DIR)

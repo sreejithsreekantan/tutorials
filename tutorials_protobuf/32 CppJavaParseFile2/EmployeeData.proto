@@ -1,0 +1,19 @@
+option java_package = "proto";
+option java_outer_classname = "EmployeeData";
+
+message Employee {
+	optional int64 empId = 1;
+	optional string empName = 2;
+	repeated PhoneNumber phoneNumber=3;
+
+	message PhoneNumber {
+		optional PHONETYPE type = 1;
+		optional string number = 2;
+	}
+
+	enum PHONETYPE {
+		MOBILE=0;
+		HOME=1;
+		OFFICE=2;
+	}
+}

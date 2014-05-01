@@ -1,0 +1,10 @@
+message Data {
+	optional int32 foo = 1;
+	extensions 2 to 5;
+}
+
+message Sree {
+	extend Data {
+		optional int32 bar = 2;
+	}
+}

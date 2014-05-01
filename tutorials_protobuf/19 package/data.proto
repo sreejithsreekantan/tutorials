@@ -1,0 +1,13 @@
+package protosree;
+
+message Data {
+	optional LifeStage s = 1;	
+}
+
+
+enum LifeStage {
+	STUDENT=0;
+	EMPLOYED=1;
+	RETIRED=2;
+	EXPIRED=3;
+}

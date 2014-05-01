@@ -1,0 +1,7 @@
+option java_package = "proto";
+option java_outer_classname = "TestData";
+
+message Data {
+	optional float f = 1;
+	// repeated float f = 1;
+}

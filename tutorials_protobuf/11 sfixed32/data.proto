@@ -1,0 +1,3 @@
+message Data {
+	optional sfixed32 i = 1;
+}

@@ -1,0 +1,15 @@
+message UnpackedData {
+	repeated float f = 1;
+}
+
+
+
+// For historical reasons, repeated fields of basic numeric types aren't encoded as 
+// efficiently as they could be. New code should use the special option [packed=true] 
+// to get a more efficient encoding. For example:
+//             --> repeated int32 samples = 4 [packed=true];
+//
+
+message PackedData {
+	repeated float f = 1 [packed=true];
+}

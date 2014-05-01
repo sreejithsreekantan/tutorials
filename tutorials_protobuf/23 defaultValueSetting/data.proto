@@ -1,0 +1,3 @@
+message Data {
+	optional double i = 1 [default=3.414];
+}

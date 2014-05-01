@@ -1,0 +1,12 @@
+TIPS:
+
+1)
+	Consider the below code of a Makefile:
+
+	TARGET: DEPENDENCY
+		echo "I am first statement"; \<space>
+		echo "I am second statement";
+
+	Above code will cause below error because of the <space> after '\':
+		/bin/sh: -c: line 1: syntax error: unexpected end of file
+		make: *** [LINK_HEADER_DIR] Error 2

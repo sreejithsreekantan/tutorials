@@ -1,0 +1,3 @@
+message Data {
+	optional sint64 i = 1;
+}

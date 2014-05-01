@@ -1,0 +1,8 @@
+Import('env') # OR Import('*') to import all exported variables
+
+
+executable = env.Program(target="exe", source=( ["main/main.cc"] + env.Glob("proto/*.pb.cc") )  )
+
+
+
+Return('executable')

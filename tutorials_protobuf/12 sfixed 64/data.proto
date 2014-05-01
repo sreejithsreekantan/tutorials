@@ -1,0 +1,3 @@
+message Data {
+	optional sfixed64 i = 1;
+}

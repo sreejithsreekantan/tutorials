@@ -1,0 +1,3 @@
+message Data {
+	optional string i = 1;
+}

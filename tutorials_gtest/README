@@ -1,0 +1,24 @@
+Project Home:
+http://code.google.com/p/googletest/
+
+Primer:
+http://code.google.com/p/googletest/wiki/Primer
+
+Advanced:
+http://code.google.com/p/googletest/wiki/AdvancedGuide#More_Assertions
+
+Frequently asked questions:
+http://code.google.com/p/googletest/wiki/FAQ
+
+Whether to use (constructor or SetUp) or (destructor or TearDown)
+http://code.google.com/p/googletest/wiki/FAQ#Should_I_use_the_constructor/destructor_of_the_test_fixture_or_t
+
+
+
+while making gtest library .dylib, .so, .a files are in the hidden folder .libs; this is explicitly copied to lib/ folder
+
+cd $(STAGING_DIR)/$(GTEST_DIR) && \
+./configure && \
+make && \
+cp lib/.libs/* lib/
+

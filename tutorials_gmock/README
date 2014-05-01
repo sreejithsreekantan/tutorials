@@ -1,0 +1,49 @@
+Cook Book:
+==========
+https://code.google.com/p/googlemock/wiki/CookBook
+
+Cheat Sheet:
+============
+code.google.com/p/googlemock/wiki/CheatSheet
+
+How to return a value from mocked method:
+http://code.google.com/p/googlemock/wiki/CookBook#Mocking_Side_Effects
+Eg : EXPECT_CALL(m,happy()).WillRepeatedly(Return(true));
+
+Mocking Destructor:
+===================
+http://code.google.com/p/googlemock/wiki/CookBook#Mocking_Destructors
+
+MOCK_METHOD0(~MockFoo, void());  // Won't compile!
+
+Solution:
+class MockFoo : public Foo {
+  ...
+  // Add the following two lines to the mock class.
+  MOCK_METHOD0(Die, void());
+  virtual ~MockFoo() { Die(); }
+};
+
+
+Gaining Super Vision into Mock Calls
+====================================
+http://code.google.com/p/googlemock/wiki/CookBook#Gaining_Super_Vision_into_Mock_Calls
+eg:
+TEST(Foo, Bar) {
+  MockFoo mock;
+  EXPECT_CALL(mock, F(_, _)).WillRepeatedly(Return());
+  EXPECT_CALL(mock, F("a", "b"));
+  EXPECT_CALL(mock, F("c", HasSubstr("d")));
+
+  mock.F("a", "good");
+  mock.F("a", "b");
+}
+
+Frequently Asked Questions:
+===========================
+http://code.google.com/p/googlemock/wiki/FrequentlyAskedQuestions
+
+My code calls a static/global function. Can I mock it?
+======================================================
+Mocking global functions : YES but need some changes
+http://code.google.com/p/googlemock/wiki/FrequentlyAskedQuestions#My_code_calls_a_static/global_function.__Can_I_mock_it?

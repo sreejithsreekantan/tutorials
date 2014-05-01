@@ -1,0 +1,6 @@
+import "minidata.proto";
+
+message Data {
+	optional MiniData m = 1;
+}
+
