@@ -1,0 +1,12 @@
+all: test
+
+test: test/test
+
+test/test:
+	g++ test/test.cc -o test/test
+
+run: test
+	test/test
+
+clean:
+	rm test/test

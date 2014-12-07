@@ -1,0 +1,10 @@
+Read on typecasting:
+http://www.cplusplus.com/doc/tutorial/typecasting/
+
+
+
+dynamic_cast  		:	for polymorphic classes and upcasting
+static_cast 		:	for non-polymorphic casting;does not incur the overhead of the type-safety; 
+						call a single-argument constructor or a conversion operator.
+reinterpret_cast 	:	any pointer type to any other pointer type, binary copy of pointer
+const_cast			:	alter const-ness

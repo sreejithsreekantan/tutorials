@@ -1,0 +1,29 @@
+PROJECT_DIR=$(shell pwd)
+STAGING_DIR=$(PROJECT_DIR)/staging
+INSTALL_DIR=$(PROJECT_DIR)/cppcheck
+TOOLS_DIR=cppcheck-1.62
+TOOLS_ZIP=$(TOOLS_DIR).tar.bz2
+
+
+all: gflags
+
+gflags: $(INSTALL_DIR)
+
+$(INSTALL_DIR): $(STAGING_DIR)/$(TOOLS_DIR)
+	mkdir -p $(INSTALL_DIR)
+	mkdir -p $(INSTALL_DIR)/bin
+	cd $(STAGING_DIR)/$(TOOLS_DIR) && \
+	make && \
+	cp cppcheck $(INSTALL_DIR)/bin/
+	@echo "****** $(TOOLS_ZIP) successfully installed in $(INSTALL_DIR)"
+
+$(STAGING_DIR)/$(TOOLS_DIR): $(TOOLS_ZIP)
+	echo $(PROJECT_DIR)
+	mkdir -p $(STAGING_DIR)
+	tar -zxf $(TOOLS_ZIP) -C $(STAGING_DIR)
+	
+
+.PHONY: clean
+
+clean:
+	rm -rf $(STAGING_DIR) $(INSTALL_DIR)

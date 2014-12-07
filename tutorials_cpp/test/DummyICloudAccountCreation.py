@@ -1,0 +1,19 @@
+#! /usr/bin/python
+
+success=100
+noteligibletocreateaccount=101
+emailalreadytaken=102
+notavalidemail=103
+invalidname=104
+passwordneedupperletter=105
+passwordnolength=106
+passwordneednumber=107
+passwordverifyfail=108
+accountlimitreached=195
+cannotcreateidatthistime=196
+systemprefalreadyrunning=197
+elementnotfound=198
+failure=199
+import random
+print [success,noteligibletocreateaccount,emailalreadytaken,notavalidemail,invalidname,passwordneedupperletter,passwordnolength,passwordneednumber,passwordverifyfail,accountlimitreached,cannotcreateidatthistime,systemprefalreadyrunning,elementnotfound,failure][random.randrange(0,14,1)]
+exit([success,noteligibletocreateaccount,emailalreadytaken,notavalidemail,invalidname,passwordneedupperletter,passwordnolength,passwordneednumber,passwordverifyfail,accountlimitreached,cannotcreateidatthistime,systemprefalreadyrunning,elementnotfound,failure][random.randrange(0,14,1)])
